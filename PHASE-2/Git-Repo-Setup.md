@@ -48,3 +48,15 @@
    - When prompted for credentials during the push, enter your username (usually your email) and use your personal access token as the password.
 
 By following these steps, you'll be able to create a private Git repository, connect to it using Git Bash, and push your code changes securely using a personal access token for authentication.
+
+8. **Install trivy into Jenkins server**:
+    sudo apt-get install wget apt-transport-https gnupg lsb-release
+
+   wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+
+   echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a 
+   /etc/apt/sources.list.d/trivy.list
+   
+    sudo apt-get update
+
+   sudo apt-get install trivy -y      
