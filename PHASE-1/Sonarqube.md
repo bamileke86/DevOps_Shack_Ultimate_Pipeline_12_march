@@ -1,4 +1,4 @@
-# SetUp SonarQube
+# SetUp SonarQube: First install docker 
 
 ```bash
 #!/bin/bash
